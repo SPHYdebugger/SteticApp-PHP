@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($usuarios[$nombre_usuario]) && $usuarios[$nombre_usuario] === $contrasena_ingresada) {
         // Autentificación exitosa, establecer la sesión
         $_SESSION['usuario_logado'] = $nombre_usuario;
-        header('Location: index.php');
+        header('Location: ..\..\index.php');
         exit();
     } else {
         $mensaje_error = 'Datos incorrectos';
@@ -42,6 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="password" id="contrasena" name="contrasena" required><br><br>
     <button type="submit">Iniciar Sesión</button>
 </form>
-    <a href="index.php"><button>Cancelar</button></a>
+    <a href="../../index.php"><button>Cancelar</button></a>
 </body>
 </html>

@@ -1,8 +1,6 @@
-
 <?php
-require ("header.php");
+require("header.php");
 ?>
-
     <main role="main" >
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel" >
@@ -13,7 +11,7 @@ require ("header.php");
             </ol>
             <div class="carousel-inner" style="padding-top: 80px;" >
                 <div class="carousel-item active">
-                    <img class="first-slide" src="resources/ritual-spa-masaje-relajante-estetica-rosi.jpg" alt="First slide" style="width: 100%; max-height: 500px;">
+                    <img class="first-slide" src="resources/images/ritual-spa-masaje-relajante-estetica-rosi.jpg" alt="First slide" style="width: 100%; max-height: 500px;">
                     <div class="container">
                         <div class="carousel-caption text-right" >
                             <h1 style="color: black;">Masajes relajantes</h1>
@@ -23,7 +21,7 @@ require ("header.php");
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="second-slide" src="resources/INR-Tractaments-Inj-54-1024x682.jpg" alt="Second slide" style="width: 100%; max-height: 500px;">
+                    <img class="second-slide" src="resources/images/INR-Tractaments-Inj-54-1024x682.jpg" alt="Second slide" style="width: 100%; max-height: 500px;">
                     <div class="container">
                         <div class="carousel-caption text-right">
                             <h1 style="color: black;">Somos un centro de estética también para hombres</h1>
@@ -33,7 +31,7 @@ require ("header.php");
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide" src="resources/presume-de-figura-con-nuestros-tratamientos-de-estetica-corporal_mini.jpg" alt="Third slide" style="width: 100%; max-height: 500px;">
+                    <img class="third-slide" src="resources/images/presume-de-figura-con-nuestros-tratamientos-de-estetica-corporal_mini.jpg" alt="Third slide" style="width: 100%; max-height: 500px;">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1 style="color: black;">Tenemos nutricionistas propios</h1>
@@ -60,20 +58,20 @@ require ("header.php");
             <!-- Three columns of text below the carousel -->
             <div class="row" style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
                 <div class="col-lg-4">
-                    <img class="rounded-circle" src="resources/cliente.png" alt="Generic placeholder image" width="140" height="140">
+                    <img class="rounded-circle" src="resources/images/cliente.png" alt="Generic placeholder image" width="140" height="140">
                     <h2>CLIENTES</h2>
                     <p>Entra para registrar un cliente nuevo, editar o borrar uno existente, listarlos a todos o buscar uno</p>
                     <p><a class="btn btn-secondary" href="clientes.php" role="button">ENTRAR &raquo;</a></p>
 
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img class="rounded-circle" src="resources/productos.png" alt="Generic placeholder image" width="140" height="140">
+                    <img class="rounded-circle" src="resources/images/productos.png" alt="Generic placeholder image" width="140" height="140">
                     <h2>PRODUCTOS</h2>
                     <p>Entra para registrar un producto nuevo, editar o borrar uno existente, listarlos a todos o buscar uno</p>
                     <p><a class="btn btn-secondary" href="products.php" role="button">ENTRAR &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img class="rounded-circle" src="resources/compras.png" alt="Generic placeholder image" width="140" height="140">
+                    <img class="rounded-circle" src="resources/images/compras.png" alt="Generic placeholder image" width="140" height="140">
                     <h2>COMPRAS</h2>
                     <p>Entra para registrar una compra nueva, editar o borrar una existente, listarlas a todas o buscar una</p>
 
@@ -96,7 +94,7 @@ require ("header.php");
                     <p class="lead">LUGAR: Nuestro centro de Madrid</p>
                 </div>
                 <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" src="resources/evento maquillaje.jpg" alt="Generic placeholder image">
+                    <img class="featurette-image img-fluid mx-auto" src="resources/images/evento maquillaje.jpg" alt="Generic placeholder image">
                 </div>
             </div>
 
@@ -111,7 +109,7 @@ require ("header.php");
                     <p class="lead">LUGAR: Nuestro centro de Zaragoza</p>
                 </div>
                 <div class="col-md-5 order-md-1">
-                    <img class="featurette-image img-fluid mx-auto" src="resources/evento hombres.jpg" alt="Generic placeholder image">
+                    <img class="featurette-image img-fluid mx-auto" src="resources/images/evento hombres.jpg" alt="Generic placeholder image">
                 </div>
             </div>
 
@@ -126,7 +124,7 @@ require ("header.php");
                     <p class="lead">LUGAR: Nuestro centro de Vigo</p>
                 </div>
                 <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" src="resources/evento antiedad.jpg" alt="Generic placeholder image">
+                    <img class="featurette-image img-fluid mx-auto" src="resources/images/evento antiedad.jpg" alt="Generic placeholder image">
                 </div>
             </div>
 
@@ -139,6 +137,6 @@ require ("header.php");
     </main>
 
 <?php
-include ("footer.php");
+include("footer.php");
 ?>
 
