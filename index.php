@@ -68,7 +68,7 @@ require("header.php");
                     <img class="rounded-circle" src="resources/images/productos.png" alt="Generic placeholder image" width="140" height="140">
                     <h2>PRODUCTOS</h2>
                     <p>Entra para registrar un producto nuevo, editar o borrar uno existente, listarlos a todos o buscar uno</p>
-                    <p><a class="btn btn-secondary" href="products.php" role="button">ENTRAR &raquo;</a></p>
+                    <p><a class="btn btn-secondary" href="productos.php" role="button">ENTRAR &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img class="rounded-circle" src="resources/images/compras.png" alt="Generic placeholder image" width="140" height="140">

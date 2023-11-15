@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $tamaño = count($clientesJson);
 
         // Guardar el array en un archivo JSON
-        file_put_contents('datosClientes.json', json_encode($clientesJson));
+        file_put_contents('dataProducts.json', json_encode($clientesJson));
         echo "</BR>"."El tamaño del array es: " . $tamaño;
     } else {
         ?>
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 <?php
 
-require('..\..\footer.php');
+require('..\..\..\footer.php');
 ?>
 
 
