@@ -1,10 +1,9 @@
 
 <?php
-include 'Clases/Cliente.php';
-include 'datos.json';
+include 'C:\Users\sanph\PhpstormProjects\Stetic100\Clases\Cliente.php';
 
 // Leer el contenido del archivo JSON
-$jsonData = file_get_contents('datos.json');
+$jsonData = file_get_contents('C:\Users\sanph\PhpstormProjects\Stetic100\resources\db\Cliente\datosClientes.json');
 
 // Decodificar el contenido JSON en una estructura de datos PHP (array de objetos stdClass)
 $data = json_decode($jsonData);

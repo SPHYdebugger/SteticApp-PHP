@@ -1,5 +1,5 @@
 <?php
-require ("header.php");
+require("header.php");
 ?>
 
 <main>
@@ -11,7 +11,7 @@ require ("header.php");
 
 
     <div class="container col-6">
-        <form action="addClient.php" method="post" enctype= "multipart/form-data">
+        <form action="resources/db/Cliente/addClient.php" method="post" enctype= "multipart/form-data">
             <div class="mb-3">
                 <label for="DNI" class="form-label">DNI</label>
                 <input type="text" class="form-control" id="DNI" name="DNI">
@@ -37,7 +37,7 @@ require ("header.php");
 </main>
 
 <?php
-include ("footer.php");
+include("footer.php");
 ?>
 
 
