@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteClient'])) {
         if ($cliente->getDNI() === $DNIABorrar) {
             unset($clientesJson[$key]);
             $clientesJson = array_values($clientesJson);
-            file_put_contents('dataProducts.json', json_encode($clientesJson));
+            file_put_contents('datosClientes.json', json_encode($clientesJson));
             header('Location: ..\..\..\clientes.php');
             exit();
         }
