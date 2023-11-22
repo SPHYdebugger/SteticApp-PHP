@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nuevoProducto = new Producto($id,$nombre, $descripcion,$precio);
 
         // Agrega el nuevo objeto al array de objetos
-        array_push($productosJson, $nuevoProducto);
+        $productosJson[] = $nuevoProducto;
 
 
         ?>

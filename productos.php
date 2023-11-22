@@ -2,10 +2,6 @@
 require ("header.php");
 require 'resources\db\Producto\arrayProducts.php';
 
-// Verificar si se ha hecho clic en el botón de borrar
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Producto\deleteProducto.php'])) {
-
-}
 ?>
 
     <main role="main" >
@@ -23,7 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Producto
                         <th>NOMBRE</th>
                         <th>DESCRIPCIÓN</th>
                         <th>PRECIO</th>
-                        <th>BORRAR</th>
+                        <?php if(isset($_SESSION['usuario_logado'])) { ?>
+                            <th>BORRAR</th>
+                        <?php } ?>
                     </tr>
                     <?php
                     foreach ($productosJson as $producto) : ?>
@@ -40,8 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Producto
                                         <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
                                     </form>
                                 </td>
-                            <?php }else {?>
-                                <td>No permitido</td>
                             <?php }?>
                         </tr>
                     <?php endforeach; ?>
@@ -51,7 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Producto
 
         </div>
 
-
+        <div class="d-flex justify-content-center">
+            <a href="index.php" class="btn btn-primary my-2">Volver a inicio</a>
+        </div>
 
     </main>
 

@@ -24,7 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Tienda\d
                         <th>CIUDAD</th>
                         <th>EMAIL</th>
                         <th>DETALLES</th>
-                        <th>BORRAR</th>
+                        <?php if(isset($_SESSION['usuario_logado'])) { ?>
+                            <th>BORRAR</th>
+                        <?php } ?>
                     </tr>
                     <?php
                     foreach ($tiendasJson as $tienda) : ?>
@@ -41,14 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Tienda\d
                             <?php
                             if(isset($_SESSION['usuario_logado'])) { ?>
                                 <td>
-                                    <form method="post" action="resources/db/Tienda/deleteTienda.php">
+                                    <form method="post" action="resources/db/Tienda/deleteShop.php">
                                         <input type="hidden" name="deleteShop" value="<?php echo $tienda->getId(); ?>">
                                         <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
                                     </form>
                                 </td>
-                            <?php }else {?>
-                                <td>No permitido</td>
-                            <?php }?>
+                            <?php } ?>
                         </tr>
                     <?php endforeach; ?>
                 </div>
@@ -57,7 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Tienda\d
 
         </div>
 
-
+        <div class="d-flex justify-content-center">
+            <a href="index.php" class="btn btn-primary my-2">Volver a inicio</a>
+        </div>
 
     </main>
 

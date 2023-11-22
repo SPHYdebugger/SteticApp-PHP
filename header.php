@@ -49,7 +49,7 @@ session_start();
                         <a class="nav-link" href="index.php" style="color: black;">INICIO <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: black;">EVENTOS</a>
+                        <a class="nav-link" href="index.php#eventos" style="color: black;">EVENTOS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tiendas.php" style="color: black;">CONTACTO</a>

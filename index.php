@@ -55,33 +55,40 @@ require("header.php");
 
         <div class="container marketing">
 
-            <!-- Three columns of text below the carousel -->
-            <div class="row" style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+
+            <div class="row justify-content-center" style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
                 <div class="col-lg-4">
                     <img class="rounded-circle" src="resources/images/cliente.png" alt="Generic placeholder image" width="140" height="140">
                     <h2>CLIENTES</h2>
                     <p>Entra para registrar un cliente nuevo, editar o borrar uno existente, listarlos a todos o buscar uno</p>
                     <p><a class="btn btn-secondary" href="clientes.php" role="button">ENTRAR &raquo;</a></p>
 
-                </div><!-- /.col-lg-4 -->
+                </div>
                 <div class="col-lg-4">
                     <img class="rounded-circle" src="resources/images/productos.png" alt="Generic placeholder image" width="140" height="140">
                     <h2>PRODUCTOS</h2>
                     <p>Entra para registrar un producto nuevo, editar o borrar uno existente, listarlos a todos o buscar uno</p>
                     <p><a class="btn btn-secondary" href="productos.php" role="button">ENTRAR &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <img class="rounded-circle" src="resources/images/compras.png" alt="Generic placeholder image" width="140" height="140">
-                    <h2>COMPRAS</h2>
-                    <p>Entra para registrar una compra nueva, editar o borrar una existente, listarlas a todas o buscar una</p>
+                </div>
 
-                    <p><a class="btn btn-secondary" href="buysUser.php" role="button">ENTRAR &raquo;</a></p>
+                <?php
+                if(isset($_SESSION['usuario_logado'])) { ?>
 
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
+                    <div class="col-lg-4">
+                        <img class="rounded-circle" src="resources/images/compras.png" alt="Generic placeholder image" width="140" height="140">
+                        <h2>COMPRAS</h2>
+                        <p>Entra para registrar una compra nueva, editar o borrar una existente, listarlas a todas o buscar una</p>
+
+                        <p><a class="btn btn-secondary" href="" role="button">ENTRAR &raquo;</a></p>
+
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
 
 
-            <div class="row featurette" style="margin-top: 30px; margin-bottom: 30px;">
+            <div id="eventos" class="row featurette" style="margin-top: 30px; margin-bottom: 30px;">
                 <hr class="featurette-divider">
                 <hr class="featurette-divider">
                 <h2 style="text-align: center;">PRÓXIMOS EVENTOS</h2>
@@ -102,7 +109,7 @@ require("header.php");
 
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading">EVENTO CUIDADO DE CARA PARA HOMRES<span class="text-muted">.</span></h2>
+                    <h2 class="featurette-heading">EVENTO CUIDADO DE CARA PARA HOMBRES<span class="text-muted">.</span></h2>
                     <p class="lead">Aprende a cuidar la piel de la cara como se merece. Para disimular los rasgos de la edad y sacarte unos añitos de encima</p>
                     <p class="lead">DÍA: 24/04/2023</p>
                     <p class="lead">HORA: 12:00</p>
@@ -130,7 +137,7 @@ require("header.php");
 
             <hr class="featurette-divider">
 
-        </div><!-- /.container -->
+        </div>
 
 
 

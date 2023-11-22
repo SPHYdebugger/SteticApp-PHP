@@ -1,6 +1,6 @@
 <?php
 
-class Tienda
+class Tienda implements JsonSerializable
 {
     private $id;
     private $ciudad;
@@ -48,5 +48,16 @@ class Tienda
     {
         return $this->mapaGoogleMaps;
     }
-}
 
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'ciudad' => $this->ciudad,
+            'direccion' => $this->direccion,
+            'telefono' => $this->telefono,
+            'email' => $this->email,
+            'mapaGoogleMaps' => $this->mapaGoogleMaps,
+        ];
+    }
+}

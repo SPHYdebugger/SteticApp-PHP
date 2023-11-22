@@ -5,7 +5,7 @@ $usuarios = array(
     'santi' => 'perez',
     'joaquin' => 'fanlo',
     'admin' => '1234',
-
+    'miriam' => 'casal',
 );
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -3,7 +3,7 @@ require ("header.php");
 require 'resources\db\Tienda\arrayShops.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['detailsShop'])) {
-    // Obtener el id del tienda que se va a borrar
+    // Obtener del post el id del tienda que se va a mostrar
     $idABuscar = $_POST['detailsShop'];
 
     // Buscar la tienda en $tiendasJson
@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['detailsShop'])) {
             $tiendaMostrada = $tiendasJson[$key];
         }
     }
-
 }
 ?>
 
@@ -35,7 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['detailsShop'])) {
             </div>
         </div>
     </div>
+    <div class="d-flex justify-content-center">
+        <a href="tiendas.php" class="btn btn-primary my-2">Volver a tiendas</a>
+    </div>
 </main>
+
+
 
 <?php
 include("footer.php");
