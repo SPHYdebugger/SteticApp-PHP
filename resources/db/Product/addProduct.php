@@ -16,28 +16,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $descripcion = $_POST['description'];
         $precio = $_POST['price'];
 
-        // Crear un nuevo objeto Producto
+        // Crear un nuevo objeto Product
 
-        $nuevoProducto = new Producto($id,$nombre, $descripcion,$precio);
+        $newProduct = new Product($id,$nombre, $descripcion,$precio);
 
         // Agrega el nuevo objeto al array de objetos
-        $productosJson[] = $nuevoProducto;
+        $productsJson[] = $newProduct;
 
 
         ?>
 
         <h2>Producto registrado con éxito</h2>
-        <p>ID del producto: <?php echo $nuevoProducto->getId(); ?></p>
-        <p>Nombre del producto: <?php echo $nuevoProducto->getNombre(); ?></p>
-        <p>Descripción del producto: <?php echo $nuevoProducto->getDescripcion(); ?></p>
-        <p>Precio del producto: <?php echo $nuevoProducto->getPrecio(); ?></p>
+        <p>ID del producto: <?php echo $newProduct->getId(); ?></p>
+        <p>Nombre del producto: <?php echo $newProduct->getNombre(); ?></p>
+        <p>Descripción del producto: <?php echo $newProduct->getDescripcion(); ?></p>
+        <p>Precio del producto: <?php echo $newProduct->getPrecio(); ?></p>
 
 
         <?php
-        $tamaño = count($productosJson);
+        $tamaño = count($productsJson);
 
         // Guardar el array en un archivo JSON
-        file_put_contents('dataProducts.json', json_encode($productosJson));
+        file_put_contents('dataProducts.json', json_encode($productsJson));
         echo "</BR>"."Número de productos en memoria: " . $tamaño;
     } else {
         ?>
@@ -48,12 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 </br>
-<a href="..\..\..\productos.php" class="btn btn-primary my-2">Volver a productos</a>
+<a href="..\..\..\products.php" class="btn btn-primary my-2">Volver a productos</a>
 
 </div>
 <?php
 
-require('..\..\..\footer.php');
+require('../../../includes/footer.php');
 ?>
 
 

@@ -1,5 +1,5 @@
 <?php
-require("header.php");
+require("includes/header.php");
 ?>
 
 <main>
@@ -11,7 +11,7 @@ require("header.php");
 
 
     <div class="container col-6">
-        <form action="resources/db/Cliente/addClient.php" method="post" enctype= "multipart/form-data">
+        <form action="resources/db/Client/addClient.php" method="post" enctype= "multipart/form-data">
             <div class="mb-3">
                 <label for="DNI" class="form-label">DNI</label>
                 <input type="text" class="form-control" id="DNI" name="DNI">
@@ -31,13 +31,13 @@ require("header.php");
         </form>
 
         <div class="container  d-flex justify-content-center">
-            <a href="clientes.php" type="button" class="btn btn-primary col-4" style="margin-top: 20px;">Volver a la lista de clientes</a>
+            <a href="clients.php" type="button" class="btn btn-primary col-4" style="margin-top: 20px;">Volver a la lista de clientes</a>
         </div>
     </div>
 </main>
 
 <?php
-include("footer.php");
+include("includes/footer.php");
 ?>
 
 

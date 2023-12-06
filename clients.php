@@ -1,6 +1,9 @@
 <?php
-require ("header.php");
-require 'resources\db\Cliente\arrayClientes.php';
+require("includes/header.php");
+require 'resources\db\Client\arrayClients.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Client\deleteClient.php'])) {}
+
 ?>
 
 <main role="main" >
@@ -9,7 +12,7 @@ require 'resources\db\Cliente\arrayClientes.php';
         <?php
         if(isset($_SESSION['usuario_logado'])) { ?>
             <div class="d-flex justify-content-center">
-            <a href="registrarCliente.php" class="btn btn-primary my-2">Registrar un cliente</a>
+            <a href="addClient.php" class="btn btn-primary my-2">Registrar un cliente</a>
             </div>
         <?php }?>
         <h2 style="text-align: center;">LISTA DE CLIENTES</h2>
@@ -24,16 +27,16 @@ require 'resources\db\Cliente\arrayClientes.php';
                     <?php } ?>
                 </tr>
                 <?php
-                foreach ($clientesJson as $cliente) : ?>
+                foreach ($clientsJson as $client) : ?>
                     <tr>
-                        <td><?php echo $cliente->getDNI(); ?></td>
-                        <td><?php echo $cliente->getNombre(); ?></td>
-                        <td><?php echo $cliente->getEmail(); ?></td>
+                        <td><?php echo $client->getDNI(); ?></td>
+                        <td><?php echo $client->getNombre(); ?></td>
+                        <td><?php echo $client->getEmail(); ?></td>
                     <?php
                     if(isset($_SESSION['usuario_logado'])) { ?>
                         <td>
-                            <form method="post" action="resources/db/Cliente/deleteClient.php">
-                                <input type="hidden" name="deleteClient" value="<?php echo $cliente->getDNI(); ?>">
+                            <form method="post" action="resources/db/Client/deleteClient.php">
+                                <input type="hidden" name="deleteClient" value="<?php echo $client->getDNI(); ?>">
                                 <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
                             </form>
                         </td>
@@ -53,5 +56,5 @@ require 'resources\db\Cliente\arrayClientes.php';
 </main>
 
 <?php
-include("footer.php");
+include("includes/footer.php");
 ?>

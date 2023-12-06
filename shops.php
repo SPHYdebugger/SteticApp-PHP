@@ -1,9 +1,9 @@
 <?php
-require ("header.php");
-require 'resources\db\Tienda\arrayShops.php';
+require("includes/header.php");
+require 'resources\db\Shop\arrayShops.php';
 
 // Verificar si se ha hecho clic en el botón de borrar
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Tienda\deleteShop.php'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Shop\deleteShop.php'])) {
 
 }
 ?>
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Tienda\d
         <div class="container" style="margin-top: 150px">
             <?php
             if(isset($_SESSION['usuario_logado'])) { ?>
-                <a href="registrarTienda.php" class="btn btn-primary my-2">Registrar una tienda</a>
+                <a href="addShop.php" class="btn btn-primary my-2">Registrar una tienda</a>
             <?php }?>
             <h2 style="text-align: center;">LISTA DE TIENDAS</h2>
             Por favor selecciona una tienda para ver los detalles de contacto y ubicación
@@ -29,22 +29,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Tienda\d
                         <?php } ?>
                     </tr>
                     <?php
-                    foreach ($tiendasJson as $tienda) : ?>
+                    foreach ($shopsJson as $shop) : ?>
                         <tr>
-                            <td><?php echo $tienda->getId(); ?></td>
-                            <td><?php echo $tienda->getCiudad(); ?></td>
-                            <td><?php echo $tienda->getEmail(); ?></td>
+                            <td><?php echo $shop->getId(); ?></td>
+                            <td><?php echo $shop->getCiudad(); ?></td>
+                            <td><?php echo $shop->getEmail(); ?></td>
                             <td>
-                                <form method="post" action="detalleTienda.php">
-                                    <input type="hidden" name="detailsShop" value="<?php echo $tienda->getId(); ?>">
+                                <form method="post" action="detailShop.php">
+                                    <input type="hidden" name="detailsShop" value="<?php echo $shop->getId(); ?>">
                                     <button type="submit" class="btn btn-primary btn-sm my-2">DETALLES</button>
                                 </form>
                             </td>
                             <?php
                             if(isset($_SESSION['usuario_logado'])) { ?>
                                 <td>
-                                    <form method="post" action="resources/db/Tienda/deleteShop.php">
-                                        <input type="hidden" name="deleteShop" value="<?php echo $tienda->getId(); ?>">
+                                    <form method="post" action="resources/db/Shop/deleteShop.php">
+                                        <input type="hidden" name="deleteShop" value="<?php echo $shop->getId(); ?>">
                                         <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
                                     </form>
                                 </td>
@@ -64,5 +64,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Tienda\d
     </main>
 
 <?php
-include("footer.php");
+include("includes/footer.php");
 ?>

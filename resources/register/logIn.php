@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Verificar si el usuario existe en el array de usuarios
     if (isset($usuarios[$nombre_usuario]) && $usuarios[$nombre_usuario] === $contrasena_ingresada) {
-        // Autentificación exitosa, establecer la sesión
+        // si existe, establecer la sesión
         $_SESSION['usuario_logado'] = $nombre_usuario;
         header('Location: ..\..\index.php');
         exit();

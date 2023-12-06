@@ -9,7 +9,7 @@ include 'arrayShops.php';
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Verificar que se hayan enviado datos
-        if (isset($_POST['id']) && isset($_POST['city'])) {
+        if (isset($_POST['id']) && isset($_POST['map'])) {
             // Obtener los datos del formulario post
             $id = $_POST['id'];
             $city = $_POST['city'];
@@ -18,30 +18,30 @@ include 'arrayShops.php';
             $email = $_POST['email'];
             $map = $_POST['map'];
 
-            // Crear un nuevo objeto Tienda
+            // Crear un nuevo objeto Shop
 
-            $nuevaTienda = new Tienda($id,$city,$address,$telephone,$email,$map);
+            $newShop = new Shop($id,$city,$address,$telephone,$email,$map);
 
             // Agrega el nuevo objeto al array
-            $tiendasJson[] = $nuevaTienda;
+            $shopsJson[] = $newShop;
 
 
             ?>
 
             <h2>Tienda registrado con éxito</h2>
-            <p>Id: <?php echo $nuevaTienda->getId(); ?></p>
-            <p>Ciudad: <?php echo $nuevaTienda->getCiudad(); ?></p>
-            <p>Dirección: <?php echo $nuevaTienda->getDireccion(); ?></p>
-            <p>Teléfono: <?php echo $nuevaTienda->getTelefono(); ?></p>
-            <p>email: <?php echo $nuevaTienda->getEmail(); ?></p>
-            <p>Mapa: <?php echo $nuevaTienda->getMapaGoogleMaps(); ?></p>
+            <p>Id: <?php echo $newShop->getId(); ?></p>
+            <p>Ciudad: <?php echo $newShop->getCiudad(); ?></p>
+            <p>Dirección: <?php echo $newShop->getDireccion(); ?></p>
+            <p>Teléfono: <?php echo $newShop->getTelefono(); ?></p>
+            <p>email: <?php echo $newShop->getEmail(); ?></p>
+            <p>Mapa: <?php echo $newShop->getMapaGoogleMaps(); ?></p>
 
 
             <?php
-            $tamaño = count($tiendasJson);
+            $tamaño = count($shopsJson);
 
             // Guardar el array en un archivo JSON
-            file_put_contents('dataShops.json', json_encode($tiendasJson));
+            file_put_contents('dataShops.json', json_encode($shopsJson));
             echo "</BR>"."Número de tiendas en memoria: " . $tamaño;
 
         } else {
@@ -53,12 +53,12 @@ include 'arrayShops.php';
 
     ?>
     </br>
-    <a href="../../../tiendas.php" class="btn btn-primary my-2">Volver a tiendas</a>
+    <a href="../../../shops.php" class="btn btn-primary my-2">Volver a tiendas</a>
 
 </div>
 <?php
 
-require('..\..\..\footer.php');
+require('../../../includes/footer.php');
 ?>
 
 

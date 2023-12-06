@@ -1,6 +1,6 @@
 <?php
 
-class Tienda implements JsonSerializable
+class Shop implements JsonSerializable
 {
     private $id;
     private $ciudad;
