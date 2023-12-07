@@ -1,7 +1,7 @@
 <?php
 include '..\headerPost.php';
 
-include 'arrayClientes.php';
+include 'arrayClients.php';
 ?>
 <div class="container" style="margin-top: 150px ; text-align: center; margin-bottom: 100px">
 
@@ -15,27 +15,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nombre = $_POST['firstName'];
         $email = $_POST['email'];
 
-        // Crear un nuevo objeto Cliente
+        // Crear un nuevo objeto Client
 
-        $nuevoCliente = new Cliente($DNI,$nombre, $email);
+        $newClient = new Client($DNI,$nombre, $email);
 
         // Agrega el nuevo objeto al array de objetos
-        array_push($clientesJson, $nuevoCliente);
+        array_push($clientsJson, $newClient);
 
 
         ?>
 
         <h2>Cliente registrado con éxito</h2>
-        <p>ID del cliente: <?php echo $nuevoCliente->getDNI(); ?></p>
-        <p>Nombre del cliente: <?php echo $nuevoCliente->getNombre(); ?></p>
-        <p>Email del cliente: <?php echo $nuevoCliente->getEmail(); ?></p>
+        <p>ID del cliente: <?php echo $newClient->getDNI(); ?></p>
+        <p>Nombre del cliente: <?php echo $newClient->getNombre(); ?></p>
+        <p>Email del cliente: <?php echo $newClient->getEmail(); ?></p>
 
 
         <?php
-        $tamaño = count($clientesJson);
+        $tamaño = count($clientsJson);
 
         // Guardar el array en un archivo JSON
-        file_put_contents('dataProducts.json', json_encode($clientesJson));
+        file_put_contents('dataClients.json', json_encode($clientsJson));
         echo "</BR>"."El tamaño del array es: " . $tamaño;
     } else {
         ?>
@@ -46,12 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 </br>
-<a href="..\..\..\clientes.php" class="btn btn-primary my-2">Volver a clientes</a>
+<a href="..\..\..\clients.php" class="btn btn-primary my-2">Volver a clientes</a>
 
 </div>
 <?php
 
-require('..\..\..\footer.php');
+require('../../../includes/footer.php');
 ?>
 
 

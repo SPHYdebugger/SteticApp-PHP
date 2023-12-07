@@ -1,5 +1,5 @@
 <?php
-class Cliente implements JsonSerializable {
+class Client implements JsonSerializable {
     private $DNI;
     private $nombre;
     private $email;
