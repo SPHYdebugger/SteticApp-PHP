@@ -1,6 +1,6 @@
 <?php
 require("includes/header.php");
-require 'resources\db\Shop\arrayShops.php';
+require ('resources\db\Shop\arrayShops.php');
 
 // Verificar si se ha hecho clic en el botón de borrar
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Shop\deleteShop.php'])) {

@@ -1,6 +1,6 @@
 <?php
 require("includes/header.php");
-require 'resources\db\Client\arrayClients.php';
+require ('resources\db\Client\arrayClients.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Client\deleteClient.php'])) {}
 
