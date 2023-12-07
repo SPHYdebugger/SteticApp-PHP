@@ -27,22 +27,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Client\d
                     <?php } ?>
                 </tr>
                 <?php
-                foreach ($clientsJson as $client) : ?>
-                    <tr>
-                        <td><?php echo $client->getDNI(); ?></td>
-                        <td><?php echo $client->getNombre(); ?></td>
-                        <td><?php echo $client->getEmail(); ?></td>
+
+                $index = 0;
+                $clientsCount = count($clientsJson);
+
+                do {
+                    $client = $clientsJson[$index];
+                ?>
+                                <tr>
+                                    <td><?php echo $client->getDNI(); ?></td>
+                                    <td><?php echo $client->getNombre(); ?></td>
+                                    <td><?php echo $client->getEmail(); ?></td>
+                                    <?php
+                                    if (isset($_SESSION['usuario_logado'])) { ?>
+                                        <td>
+                                            <form method="post" action="resources/db/Client/deleteClient.php">
+                                                <input type="hidden" name="deleteClient" value="<?php echo $client->getDNI(); ?>">
+                                                <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
+                                            </form>
+                                        </td>
+                                    <?php } ?>
+                                </tr>
                     <?php
-                    if(isset($_SESSION['usuario_logado'])) { ?>
-                        <td>
-                            <form method="post" action="resources/db/Client/deleteClient.php">
-                                <input type="hidden" name="deleteClient" value="<?php echo $client->getDNI(); ?>">
-                                <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
-                            </form>
-                        </td>
-                    <?php } ?>
-                    </tr>
-                <?php endforeach; ?>
+                    $index++;
+                } while ($index < $clientsCount);
+                ?>
+
             </div>
 
         </table>

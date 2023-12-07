@@ -29,7 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Shop\del
                         <?php } ?>
                     </tr>
                     <?php
-                    foreach ($shopsJson as $shop) : ?>
+                    $shopCount = count($shopsJson);
+
+                    for ($i = 0; $i < $shopCount; $i++) {
+                        $shop = $shopsJson[$i];
+                        ?>
                         <tr>
                             <td><?php echo $shop->getId(); ?></td>
                             <td><?php echo $shop->getCiudad(); ?></td>
@@ -41,16 +45,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Shop\del
                                 </form>
                             </td>
                             <?php
-                            if(isset($_SESSION['usuario_logado'])) { ?>
+                            if (isset($_SESSION['usuario_logado'])) {
+                                ?>
                                 <td>
                                     <form method="post" action="resources/db/Shop/deleteShop.php">
                                         <input type="hidden" name="deleteShop" value="<?php echo $shop->getId(); ?>">
                                         <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
                                     </form>
                                 </td>
-                            <?php } ?>
+                                <?php
+                            }
+                            ?>
                         </tr>
-                    <?php endforeach; ?>
+                        <?php
+                    }
+                    ?>
+
                 </div>
 
             </table>

@@ -25,7 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Product\
                             <th>BORRAR</th>
                         <?php } ?>
                     </tr>
+
                     <?php
+                    $index = 0;
                     foreach ($productsJson as $product) : ?>
                         <tr>
                             <td><?php echo $product->getId(); ?></td>
@@ -33,16 +35,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Product\
                             <td><?php echo $product->getDescripcion(); ?></td>
                             <td><?php echo $product->getPrecio(); ?> €</td>
                             <?php
-                            if(isset($_SESSION['usuario_logado'])) { ?>
+                            if (isset($_SESSION['usuario_logado'])) { ?>
                                 <td>
-                                    <form method="post" action="resources/db/Product/deleteProduct.php">
-                                        <input type="hidden" name="deleteProduct" value="<?php echo $product->getId(); ?>">
-                                        <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
-                                    </form>
+                                    <?php
+                                    switch ($index % 2) {
+                                        case 0: // Si el índice es par
+                                            ?>
+                                            <form method="post" action="resources/db/Product/deleteProduct.php">
+                                                <input type="hidden" name="deleteProduct" value="<?php echo $product->getId(); ?>">
+                                                <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
+                                            </form>
+                                            <?php
+                                            break;
+                                        case 1: // Si el índice es impar
+                                            ?>
+                                            <form method="post" action="resources/db/Product/deleteProduct.php">
+                                                <input type="hidden" name="deleteProduct" value="<?php echo $product->getId(); ?>">
+                                                <button type="submit" class="btn btn-danger btn-sm my-2">BORRAR</button>
+                                            </form>
+                                            <?php
+                                            break;
+                                    }
+                                    ?>
                                 </td>
-                            <?php }?>
+                            <?php } ?>
                         </tr>
-                    <?php endforeach; ?>
+                        <?php
+                        $index++;
+                    endforeach;
+                    ?>
+
                 </div>
 
             </table>
