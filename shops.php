@@ -29,36 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Shop\del
                         <?php } ?>
                     </tr>
                     <?php
-                    $shopCount = count($shopsJson);
 
-                    for ($i = 0; $i < $shopCount; $i++) {
-                        $shop = $shopsJson[$i];
-                        ?>
-                        <tr>
-                            <td><?php echo $shop->getId(); ?></td>
-                            <td><?php echo $shop->getCiudad(); ?></td>
-                            <td><a href="mailForm.php"><?php echo $shop->getEmail(); ?></a></td>
-                            <td>
-                                <form method="post" action="detailShop.php">
-                                    <input type="hidden" name="detailsShop" value="<?php echo $shop->getId(); ?>">
-                                    <button type="submit" class="btn btn-primary btn-sm my-2">DETALLES</button>
-                                </form>
-                            </td>
-                            <?php
-                            if (isset($_SESSION['usuario_logado'])) {
-                                ?>
-                                <td>
-                                    <form method="post" action="resources/db/Shop/deleteShop.php">
-                                        <input type="hidden" name="deleteShop" value="<?php echo $shop->getId(); ?>">
-                                        <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
-                                    </form>
-                                </td>
-                                <?php
-                            }
-                            ?>
-                        </tr>
-                        <?php
-                    }
+                    //llamar a la función para mostrar las tiendas
+                    showShops($shopsJson);
                     ?>
 
                 </div>
@@ -74,5 +47,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Shop\del
     </main>
 
 <?php
+
+function showShops($shopsJson){
+    $shopCount = count($shopsJson);
+
+    for ($i = 0; $i < $shopCount; $i++) {
+        $shop = $shopsJson[$i];
+        ?>
+        <tr>
+            <td><?php echo $shop->getId(); ?></td>
+            <td><?php echo $shop->getCiudad(); ?></td>
+            <td><a href="mailForm.php"><?php echo $shop->getEmail(); ?></a></td>
+            <td>
+                <form method="post" action="detailShop.php">
+                    <input type="hidden" name="detailsShop" value="<?php echo $shop->getId(); ?>">
+                    <button type="submit" class="btn btn-primary btn-sm my-2">DETALLES</button>
+                </form>
+            </td>
+            <?php
+            if (isset($_SESSION['usuario_logado'])) {
+                ?>
+                <td>
+                    <form method="post" action="resources/db/Shop/deleteShop.php">
+                        <input type="hidden" name="deleteShop" value="<?php echo $shop->getId(); ?>">
+                        <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
+                    </form>
+                </td>
+                <?php
+            }
+            ?>
+        </tr>
+        <?php
+    }
+}
+
 include("includes/footer.php");
 ?>

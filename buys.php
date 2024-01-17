@@ -25,23 +25,9 @@ require ('resources\db\Buy\arrayBuys.php');
                         <?php } ?>
                     </tr>
                     <?php
-                    foreach ($buysJson as $buy) : ?>
-                        <tr>
-                            <td><?php echo $buy->getIdBuy(); ?></td>
-                            <td><?php echo $buy->getClient(); ?></td>
-                            <td><?php echo $buy->getProduct(); ?></td>
-                            <td><?php echo $buy->getBuyDate(); ?></td>
-                            <?php
-                            if(isset($_SESSION['usuario_logado'])) { ?>
-                                <td>
-                                    <form method="post" action="">
-                                        <input type="hidden" name="deleteBuy" value="<?php echo $buy->getIdBuy(); ?>">
-                                        <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
-                                    </form>
-                                </td>
-                            <?php } ?>
-                        </tr>
-                    <?php endforeach; ?>
+                    //llamar a la función para mostrar las compras
+                    showBuys($buysJson);
+                    ?>
                 </div>
 
             </table>
@@ -55,5 +41,25 @@ require ('resources\db\Buy\arrayBuys.php');
     </main>
 
 <?php
+function showBuys($buysJson) {
+    foreach ($buysJson as $buy) : ?>
+        <tr>
+            <td><?php echo $buy->getIdBuy(); ?></td>
+            <td><?php echo $buy->getClient(); ?></td>
+            <td><?php echo $buy->getProduct(); ?></td>
+            <td><?php echo $buy->getBuyDate(); ?></td>
+            <?php
+            if(isset($_SESSION['usuario_logado'])) { ?>
+                <td>
+                    <form method="post" action="">
+                        <input type="hidden" name="deleteBuy" value="<?php echo $buy->getIdBuy(); ?>">
+                        <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
+                    </form>
+                </td>
+            <?php } ?>
+        </tr>
+    <?php endforeach;
+}
+
 include("includes/footer.php");
 ?>

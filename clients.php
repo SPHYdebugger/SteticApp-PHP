@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Client\d
 ?>
 
 <main role="main" >
-
     <div class="container" style="margin-top: 150px">
         <?php
         if(isset($_SESSION['usuario_logado'])) { ?>
@@ -26,31 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Client\d
                     <th>BORRAR</th>
                     <?php } ?>
                 </tr>
+
                 <?php
-
-                $index = 0;
-                $clientsCount = count($clientsJson);
-
-                do {
-                    $client = $clientsJson[$index];
-                ?>
-                                <tr>
-                                    <td><?php echo $client->getDNI(); ?></td>
-                                    <td><?php echo $client->getNombre(); ?></td>
-                                    <td><?php echo $client->getEmail(); ?></td>
-                                    <?php
-                                    if (isset($_SESSION['usuario_logado'])) { ?>
-                                        <td>
-                                            <form method="post" action="resources/db/Client/deleteClient.php">
-                                                <input type="hidden" name="deleteClient" value="<?php echo $client->getDNI(); ?>">
-                                                <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
-                                            </form>
-                                        </td>
-                                    <?php } ?>
-                                </tr>
-                    <?php
-                    $index++;
-                } while ($index < $clientsCount);
+                //llamar a la función para mosrtar los clientes
+                showClients($clientsJson);
                 ?>
 
             </div>
@@ -66,5 +44,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Client\d
 </main>
 
 <?php
+function showClients($clientsJson){
+    $index = 0;
+    $clientsCount = count($clientsJson);
+
+    do {
+        $client = $clientsJson[$index];
+        ?>
+        <tr>
+            <td><?php echo $client->getDNI(); ?></td>
+            <td><?php echo $client->getNombre(); ?></td>
+            <td><?php echo $client->getEmail(); ?></td>
+            <?php
+            if (isset($_SESSION['usuario_logado'])) { ?>
+                <td>
+                    <form method="post" action="resources/db/Client/deleteClient.php">
+                        <input type="hidden" name="deleteClient" value="<?php echo $client->getDNI(); ?>">
+                        <button type="submit" class="btn btn-primary btn-sm my-2">BORRAR</button>
+                    </form>
+                </td>
+            <?php } ?>
+        </tr>
+        <?php
+        $index++;
+    } while ($index < $clientsCount);
+}
+
 include("includes/footer.php");
 ?>
