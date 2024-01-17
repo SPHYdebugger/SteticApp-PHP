@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Shop\del
                         <tr>
                             <td><?php echo $shop->getId(); ?></td>
                             <td><?php echo $shop->getCiudad(); ?></td>
-                            <td><?php echo $shop->getEmail(); ?></td>
+                            <td><a href="mailForm.php"><?php echo $shop->getEmail(); ?></a></td>
                             <td>
                                 <form method="post" action="detailShop.php">
                                     <input type="hidden" name="detailsShop" value="<?php echo $shop->getId(); ?>">
