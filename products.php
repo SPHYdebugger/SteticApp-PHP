@@ -1,6 +1,6 @@
 <?php
 require("includes/header.php");
-require 'resources\db\Product\arrayProducts.php';
+require ('resources\db\Product\arrayProducts.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Product\deleteProduct.php'])) {}
 

@@ -1,6 +1,6 @@
 <?php
 require("includes/header.php");
-require 'resources\db\Buy\arrayBuys.php';
+require ('resources\db\Buy\arrayBuys.php');
 ?>
 
     <main role="main" >

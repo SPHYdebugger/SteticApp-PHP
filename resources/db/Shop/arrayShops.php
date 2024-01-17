@@ -1,9 +1,9 @@
 
 <?php
-include 'C:\Users\sanph\PhpstormProjects\Stetic100\Classes\Shop.php';
+include 'C:\xampp\htdocs\Stetic100\Classes\Shop.php';
 
 // Leer el contenido del archivo JSON
-$jsonData = file_get_contents('C:\Users\sanph\PhpstormProjects\Stetic100\resources\db\Shop\dataShops.json');
+$jsonData = file_get_contents('C:\xampp\htdocs\Stetic100\resources\db\Shop\dataShops.json');
 
 // Decodificar el contenido JSON
 $data = json_decode($jsonData);

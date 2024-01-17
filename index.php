@@ -1,5 +1,7 @@
 <?php
 require("includes/header.php");
+setcookie("idioma","selecionar la opción de idioma");
+setcookie("accederUbicacion","permitir utilizar la ubicación");
 ?>
     <main role="main" >
 

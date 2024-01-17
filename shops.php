@@ -1,6 +1,6 @@
 <?php
 require("includes/header.php");
-require 'resources\db\Shop\arrayShops.php';
+require ('resources\db\Shop\arrayShops.php');
 
 // Verificar si se ha hecho clic en el botón de borrar
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Shop\deleteShop.php'])) {
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resources\db\Shop\del
                         <tr>
                             <td><?php echo $shop->getId(); ?></td>
                             <td><?php echo $shop->getCiudad(); ?></td>
-                            <td><?php echo $shop->getEmail(); ?></td>
+                            <td><a href="mailForm.php"><?php echo $shop->getEmail(); ?></a></td>
                             <td>
                                 <form method="post" action="detailShop.php">
                                     <input type="hidden" name="detailsShop" value="<?php echo $shop->getId(); ?>">
